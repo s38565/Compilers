@@ -1,0 +1,58 @@
+======What you need to do to pass testcase1======
+
+1. Implement '\'
+
+2. Implement return statement
+
+3. Modify the hw2.y grammer rules to meet the 
+   function definition form specified in hw2 spec.:
+
+   Type ident(para, para, para, …) 
+   {
+    … 
+   }
+
+4. Modify hw2.l and hw2.y to meet the output format 
+   specified in hw2 spec.
+
+5. Print out the error (with the given format) for 
+   testcase1_err.cs 
+
+=========================files======================
+
+hw2.l:      A Subset of the Lexical analyzer. You 
+            should be able to write a better one. 
+
+hw2.y:      A very limited subset of C Grammar. You 
+            should add into the grammar or at least 
+            it show you how things work.
+
+define.h:   A  definition file used by hw2.y
+
+
+SymbolTable.c:     Symbol Table Handler
+
+
+SymbolTable.h:     Symbol table header file. Used by 
+                   SymbolTable.c, hw2.y
+
+
+In testcase1/
+testcase1.cs:    The test case you need to parse correctly.
+
+testcase1_err.cs:   The error (with the given format) 
+                    message needs to be printed out for 
+                    this test case. 
+
+===================execution procedure===============
+
+You can use the makefile or doing the following.
+
+
+%flex hw2.l
+
+%byacc -vd hw2.y
+
+%gcc lex.yy.c y.tab.c SymbolTable.c
+
+%./parser < testcase1.cs
